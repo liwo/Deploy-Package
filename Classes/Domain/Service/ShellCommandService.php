@@ -107,11 +107,12 @@ class ShellCommandService {
 		$command = $this->prepareCommand($command);
 		$deployment->getLogger()->log('    $' . $node->getName() . ': "' . $command . '"', LOG_DEBUG);
 		$username = $node->getOption('username');
+		$sshKeyFile = $node->getOption('sshKeyFile');
 		$hostname = $node->getHostname();
 		$returnedOutput = '';
 
 		// TODO Get SSH options from node or deployment
-		$fp = popen('ssh -A ' . $username . '@' . $hostname . ' ' . escapeshellarg($command) . ' 2>&1', 'r');
+		$fp = popen('ssh -A ' . ($sshKeyFile !== NULL ? '-i ' . $sshKeyFile . ' ' : ' ') . $username . '@' . $hostname . ' ' . escapeshellarg($command) . ' 2>&1', 'r');
 		while (($line = fgets($fp)) !== FALSE) {
 			$deployment->getLogger()->log('    > ' . rtrim($line));
 			$returnedOutput .= $line;
