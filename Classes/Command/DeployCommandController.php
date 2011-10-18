@@ -7,13 +7,16 @@ namespace TYPO3\Deploy\Command;
  *                                                                        *
  *                                                                        */
 
+use Doctrine\ORM\Mapping as ORM;
+use TYPO3\FLOW3\Annotations as FLOW3;
+
 /**
  * Deploy command controller
  */
 class DeployCommandController extends \TYPO3\FLOW3\MVC\Controller\CommandController {
 
 	/**
-	 * @inject
+	 * @FLOW3\Inject
 	 * @var \TYPO3\Deploy\Domain\Service\DeploymentService
 	 */
 	protected $deploymentService;

@@ -10,6 +10,9 @@ use \TYPO3\Deploy\Domain\Model\Node;
 use \TYPO3\Deploy\Domain\Model\Application;
 use \TYPO3\Deploy\Domain\Model\Deployment;
 
+use Doctrine\ORM\Mapping as ORM;
+use TYPO3\FLOW3\Annotations as FLOW3;
+
 /**
  * A cleanup task to delete old (unused) releases
  *
@@ -18,7 +21,7 @@ use \TYPO3\Deploy\Domain\Model\Deployment;
 class CleanupReleasesTask extends \TYPO3\Deploy\Domain\Model\Task {
 
 	/**
-	 * @inject
+	 * @FLOW3\Inject
 	 * @var \TYPO3\Deploy\Domain\Service\ShellCommandService
 	 */
 	protected $shell;

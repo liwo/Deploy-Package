@@ -8,6 +8,9 @@ namespace TYPO3\Deploy\Domain\Model;
 
 use \TYPO3\Deploy\Domain\Model\Deployment;
 
+use Doctrine\ORM\Mapping as ORM;
+use TYPO3\FLOW3\Annotations as FLOW3;
+
 /**
  * A Workflow
  *
@@ -16,7 +19,7 @@ use \TYPO3\Deploy\Domain\Model\Deployment;
 abstract class Workflow {
 
 	/**
-	 * @inject
+	 * @FLOW3\Inject
 	 * @var \TYPO3\Deploy\Domain\Service\TaskManager
 	 */
 	protected $taskManager;
