@@ -43,6 +43,7 @@ class SymlinkConfigurationTask extends \TYPO3\Deploy\Domain\Model\Task {
 		$commands = array(
 			"cd {$targetReleasePath}/Configuration",
 			"mkdir -p ../../../shared/Configuration/Production",
+			"rm -r Production",
 			"ln -snf ../../../shared/Configuration/Production Production"
 		);
 		$this->shell->executeOrSimulate($commands, $node, $deployment);
